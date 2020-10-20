@@ -94,6 +94,60 @@ canvas
 
 
 .gun-fireshot
+  position fixed
+  bottom 10%
+  right: 5%
+  width: 400px
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-top 1px solid black
+    border-left 1px solid black
+    position: absolute
+    left: -30px
+    top: -30px
+
+ 
+  .bullet-fire
+    display: flex
+    flex-flow column nowrap
+    align-items: flex-start
+    justify-content: space-around
+
+    .box-text
+      .bullet-average
+        font-size: 60px
+        color: #FFD400
+        font-family: 'Piedra', cursive;
+        margin: 0
+      
+      .bullet-desc
+        margin: 0
+        font-family: 'Roboto Mono', monospace;
+
+    .graph-bullet
+      width: 100%
+      .movie
+        width: 80%
+        display flex
+        flex-flow row nowrap
+        align-items: center
+        justify-content: space-around
+
+        .title-movie
+          font-family: 'Piedra', cursive;
+          text-transform: uppercase
+          text-align: right
+          width: 35%
+          margin-right: 10px
+
+        .bulletPerMovie
+          width: 40%
+          height: 10px
+          background-color: #FFD400
+          margin-left: 10px
+        
 
 
 
