@@ -26,6 +26,7 @@ export default class App {
     this.setCamera()
     this.setWorld()
     this.openIntro()
+    this.showData()
   }
   setRenderer() {
     // Set scene
@@ -110,6 +111,18 @@ export default class App {
 
     introBtn.addEventListener('click', ()=> {
       intro.classList.add('openIntro')
+    })
+  }
+
+  showData(){
+    const infoBullet = document.querySelector('.gun-fireshot')
+    const infoDeath = document.querySelector('.deathPerMovie')
+
+    this.trigger1.addEventListener('click', ()=> {
+      infoBullet.classList.toggle('hidden')
+    })
+    this.trigger3.addEventListener('click', ()=> {
+      infoDeath.classList.toggle('hidden')
     })
   }
 }

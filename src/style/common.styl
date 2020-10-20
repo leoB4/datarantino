@@ -11,6 +11,9 @@ canvas
 .openIntro
   transform: translateX(-150%)
 
+.hidden
+  opacity: 0
+
 .intro
   background-color #141414
   width 100%
@@ -133,6 +136,7 @@ canvas
   bottom 10%
   right: 5%
   width: 400px
+  transition: .5s ease-in-out
 
   .boxed
     width: 65px
@@ -203,6 +207,7 @@ canvas
     flex-flow column nowrap
     align-items: flex-start
     justify-content: space-around
+    transition: .5s ease-in-out
 
     .boxed
         width: 65px
