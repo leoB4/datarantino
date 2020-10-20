@@ -25,6 +25,7 @@ export default class App {
     this.setRenderer()
     this.setCamera()
     this.setWorld()
+    this.openIntro()
   }
   setRenderer() {
     // Set scene
@@ -101,5 +102,14 @@ export default class App {
     vector.y = -(vector.y - 1)/2.2  * height;
 
     return vector;
-}
+  }
+
+  openIntro(){
+    const introBtn = document.querySelector('.home-title')
+    const intro = document.querySelector('.intro')
+
+    introBtn.addEventListener('click', ()=> {
+      intro.classList.add('openIntro')
+    })
+  }
 }

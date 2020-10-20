@@ -8,6 +8,40 @@ canvas
   height 100%
   outline none
 
+.openIntro
+  transform: translateX(-150%)
+
+.intro
+  background-color #141414
+  width 100%
+  height 100%
+  position: fixed
+  z-index 9999
+  top: 0
+  display flex
+  flex-flow row wrap
+  align-items: center
+  justify-content: space-around
+  margin 0
+  overflow: hidden
+  transition .5s ease-in-out
+
+  .home-title
+    font-size 200px
+    border none 
+    background-color transparent
+    color transparent
+    text-transform uppercase
+    font-family: 'Piedra', cursive;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #FFD400;
+    transition .5s ease-in-out
+    cursor pointer
+    outline none
+
+    &:hover
+      color: #FFD400
+
 .header 
   position: fixed
   top: 2%
@@ -39,6 +73,7 @@ canvas
     border-radius 50%
     transition .3s ease-in-out
     position relative
+    cursor pointer
 
     svg
       width: 50%
@@ -102,8 +137,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid black
-    border-left 1px solid black
+    border-top 1px solid #141414
+    border-left 1px solid #141414
     position: absolute
     left: -30px
     top: -30px
@@ -135,21 +170,112 @@ canvas
         align-items: center
         justify-content: space-around
 
+        &:hover
+          .title-movie
+            color #FFD400
+          
+          .bulletPerMovie
+            background-color #FFD400
+
         .title-movie
           font-family: 'Piedra', cursive;
           text-transform: uppercase
           text-align: right
-          width: 35%
-          margin-right: 10px
+          width: 45%
+          margin: 5px 10px
+          color: #FFF
+          font-size: 14px
+          transition: .5s ease-in-out
 
         .bulletPerMovie
           width: 40%
           height: 10px
-          background-color: #FFD400
+          background-color: #FFF
           margin-left: 10px
+          transition: .5s ease-in-out
         
+.deathPerMovie
+    position fixed
+    bottom 5%
+    left: 5%
+    width: 200px
+    display: flex
+    flex-flow column nowrap
+    align-items: flex-start
+    justify-content: space-around
 
+    .boxed
+        width: 65px
+        height: 65px
+        border-top 1px solid #141414
+        border-right 1px solid #141414
+        position: absolute
+        right: -30px
+        top: -30px
 
+    .death-title
+      margin: 0
+      font-size: 30px
+      font-family: 'Piedra', cursive
+      width: 100%
+      text-align: right
+
+      strong  
+        font-weight: normal
+        color: #FFD400
+
+    .death-movie
+      display: flex
+      flex-flow: column nowrap
+      align-items: flex-end
+      justify-content: space-around
+      width: 100%
+      margin-right: 40px
+
+      .movie  
+        display: flex
+        flex-flow: row nowrap
+        align-items: center
+        justify-content: space-around
+        margin: 10px 0
+        width: 100%
+
+        &:hover
+          p
+            color: #FFD400
+
+        p
+          margin: 0
+          width: 45%  
+          font-family: 'Piedra', cursive
+          font-size: 14px
+          color: #FFF
+          transition: .5s ease-in-out
+        
+        .movie-title
+          text-align: right
+
+    .scale-death
+      display: flex
+      flex-flow row nowrap
+      align-items: center
+      justify-content: space-between
+      width: 100%
+
+      .death
+        display: flex
+        flex-flow row nowrap
+        align-items: center
+        justify-content: space-around
+
+        img
+          transform: scale(1.3)
+          margin-right: 10px
+
+        p
+          font-size: 14px
+          font-family: 'Piedra', cursive
+          color: #FFF
 
 
 
