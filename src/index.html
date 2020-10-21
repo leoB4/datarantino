@@ -10,21 +10,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Piedra&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <canvas id="_canvas"></canvas>
-
+<body class="object-0">
     <div class="intro">
         <button class="home-title">Datarantino</button>
     </div>
+    
+    <canvas id="_canvas" class="e"></canvas>
 
-    <div class="header">
+
+    <div class="header ">
         <div class="header-wrapper">
             <div class="header-title">
                 <h1>Datarantino</h1>
             </div>
             <div class="header-nav">
-                <div class="object selectedNav">
+                <div class="object selectedNav js-objectSelected" data-object="gun" data-x="0">
                     <svg xmlns="http://www.w3.org/2000/svg" width="43.382" height="32.429" viewBox="0 0 43.382 32.429">
+                        <style type="text/css">
+                            .st0 {
+                                opacity: 0.3;
+                            }
+                        </style>
                         <g transform="translate(-632.815 -72.564)">
                             <g transform="translate(632.815 72.564)">
                                 <g transform="translate(-14.947 -11.696) rotate(-22)">
@@ -39,14 +45,14 @@
                     </svg>
                 </div>
                 <div class="line">
-                    <span></span>
+                    <span class="first-line for5"></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <div class="object">
+                <div class="object js-objectSelected" data-object="dynamite" data-x="5">
                     <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 14.9 18.9"
                         style="enable-background:new 0 0 14.9 18.9;" xml:space="preserve">
@@ -69,14 +75,14 @@
                     </svg>
                 </div>
                 <div class="line">
-                    <span></span>
+                    <span class="first-line for10"></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <div class="object">
+                <div class="object js-objectSelected" data-object="katana" data-x="10">
                     <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 19.9 21.1"
                         style="enable-background:new 0 0 19.9 21.1;" xml:space="preserve">
@@ -98,14 +104,14 @@
 
                 </div>
                 <div class="line">
-                    <span></span>
+                    <span class="first-line for15"></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <div class="object">
+                <div class="object js-objectSelected" data-object="insult" data-x="15">
                     <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg"
                         xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 27 20.6"
                         style="enable-background:new 0 0 27 20.6;" xml:space="preserve">
@@ -192,13 +198,13 @@
                 </div>
             </div>
             <div class="lab-mouse">
-                <p>+ 0518</p>
+                <p>+ <strong class="lab-mouse-content">518</strong></p>
                 <span></span>
             </div>
         </div>
     </div>
 
-    <div class="gun-fireshot hidden">
+    <div class="gun-fireshot hidden ">
         <div class="boxed"></div>
         <div class="bullet-fire">
             <div class="box-text">
@@ -206,31 +212,31 @@
                 <p class="bullet-desc">Coups de feu moyen par film</p>
             </div>
             <div class="graph-bullet">
-                <div class="movie">
+                <div class="movie pulp">
                     <p class="title-movie">Pulp Fiction</p>
                     <div class="bulletPerMovie"></div>
                 </div>
-                <div class="movie">
-                    <p class="title-movie">Kill Bill</p>
+                <div class="movie kill">
+                    <p class="title-movie ">Kill Bill</p>
                     <div class="bulletPerMovie"></div>
                 </div>
-                <div class="movie">
-                    <p class="title-movie">Jackie brown</p>
+                <div class="movie jackie">
+                    <p class="title-movie ">Jackie brown</p>
                     <div class="bulletPerMovie"></div>
                 </div>
-                <div class="movie">
-                    <p class="title-movie">Inglorious basterds</p>
+                <div class="movie inglorious">
+                    <p class="title-movie ">Inglorious basterds</p>
                     <div class="bulletPerMovie"></div>
                 </div>
-                <div class="movie">
-                    <p class="title-movie">Django unchained</p>
+                <div class="movie django">
+                    <p class="title-movie ">Django unchained</p>
                     <div class="bulletPerMovie"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="deathPerMovie hidden">
+    <div class="deathPerMovie hidden ">
         <div class="boxed"></div>
         <p class="death-title"> <strong>Morts</strong> par film </p>
         <div class="death-movie">
@@ -271,9 +277,76 @@
         </div>
     </div>
 
+    <div class="headshotPerMovie hidden ">
+        <div class="boxed"></div>
+        <div class="headshot-text">
+            <p class="nmb-headshot">2</p>
+            <p class="headshot-info">Têtes explosée dans <span class="js-headTitleMovie">Pulp Fiction</span> </p>
+        </div>
+        <div class="headshot-graph">
+            <div class="movie pulp js-head head-selected" data-head="2" data-movie="Pulp fiction"></div>
+            <div class="movie kill js-head" data-head="4" data-movie="Kill Bill"></div>
+            <div class="movie jackie js-head" data-head="1" data-movie="Jackie Brown"></div>
+            <div class="movie inglorious js-head" data-head="12" data-movie="Inglorious Basterds"></div>
+            <div class="movie django js-head" data-head="6" data-movie="Django Unchained"></div>
+        </div>
+    </div>
+
+    <div class="temperature hidden">
+        <div class="boxed"></div>
+        <div class="temperature-content">
+            <p class="title-temperature">Évolution Évolution de la température dans <strong> Inflorious Basterds</strong></p>
+            <img src="./assets/round-btn.svg" alt="">
+        </div>
+    </div>
+
+    <div class="explosion-death">
+        <div class="boxed"></div>
+        <div class="explosion-text">
+            <p class="explosion-nmb">54</p>
+            <p class="explosion-desc">Mort par exposition</p>
+        </div>
+        <div class="explosion-graph">
+            <div class="explosion-django">
+                <p class="movie-title">Django Unchained</p>
+                <div class="movie-bar"></div>
+                <p class="movie-nb">25</p>
+            </div>
+            <div class="explosion-inglorious">
+                <p class="movie-title">Inglorious Basterds</p>
+                <div class="movie-bar"></div>
+                <p class="movie-nb">54</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="katana-blood">
+        <div class="boxed"></div>
+        <p class="liter">500 litres</p>
+        <p class="blood-desc">de sang sur le katana</p>
+    </div>
+    
+    <div class="katana-death">
+        <div class="boxed"></div>
+        <p class="katana-deathNb">55</p>
+        <p class="katana-desc">Morts par Katana dans Kill Bill</p>
+    </div>
+
+    <div class="insult-nb">
+        <div class="boxed"></div>
+        
+    </div>
+
+
     <button class="trigger1 btn"></button>
     <button class="trigger2 btn"></button>
     <button class="trigger3 btn"></button>
+    <button class="trigger4 btn"></button>
+    <button class="trigger5 btn"></button>
+    <button class="trigger6 btn"></button>
+    <button class="trigger7 btn"></button>
+    <button class="trigger8 btn"></button>
+    <button class="trigger9 btn"></button>
 </body>
 
 </html>

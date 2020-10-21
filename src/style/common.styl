@@ -8,6 +8,10 @@ canvas
   height 100%
   outline none
 
+.all
+  display none
+  z-index 1
+
 .openIntro
   transform: translateX(-150%)
 
@@ -98,19 +102,28 @@ canvas
     transform: scale(1.6)
 
     svg
-      transform: translate(-50%,-50%) scale(1.6)
+      transform: translate(-50%,-50%)
+      .st0
+        opacity: 1  
 
   .line
     display flex
     flex-flow row nowrap
     align-items center
     justify-content: space-around
+    position relative
 
     span
       width: 10px
       height: 2px
       background-color: #000
       margin: 0px 10px
+      transition .5s ease-in-out
+
+    .first-line
+      position: absolute
+      left: 0
+
 
 .lab-mouse
   transform-origin: center right
@@ -120,6 +133,9 @@ canvas
     font-size: 30px
     display: inline-block
     vertical-align: middle
+
+    strong 
+      font-weight normal
   
   span 
     margin-left: 20px
@@ -167,12 +183,10 @@ canvas
 
     .graph-bullet
       width: 100%
+
       .movie
         width: 80%
-        display flex
-        flex-flow row nowrap
-        align-items: center
-        justify-content: space-around
+        position: relative
 
         &:hover
           .title-movie
@@ -180,6 +194,9 @@ canvas
           
           .bulletPerMovie
             background-color #FFD400
+
+            &::after
+              opacity 1
 
         .title-movie
           font-family: 'Piedra', cursive;
@@ -190,6 +207,8 @@ canvas
           color: #FFF
           font-size: 14px
           transition: .5s ease-in-out
+          vertical-align middle
+          display inline-block
 
         .bulletPerMovie
           width: 40%
@@ -197,7 +216,59 @@ canvas
           background-color: #FFF
           margin-left: 10px
           transition: .5s ease-in-out
+          vertical-align middle
+          display inline-block
+
+          &::after
+            opacity 0
+            transition: .5s ease-in-out
+            color #FFD400
+            font-family: 'Piedra', cursive;
+            font-size 16px
+            position: absolute
+            top: 50%
+            right: -10%
+            transform translate(-50%,-50%)
         
+      .pulp
+        .bulletPerMovie
+          width: 15%
+
+          &::after
+            content '15'
+      
+      .kill
+        .bulletPerMovie
+          width: 30%
+
+          &::after
+            content '60'
+      
+      .jackie
+        .bulletPerMovie
+          width: 8%
+
+          &::after
+            content '4'
+      
+      .inglorious
+        .bulletPerMovie
+
+          &::after
+            content '450'
+      
+      .django
+        .bulletPerMovie
+          width: 32%
+          &::after
+            content '125'
+
+       
+          
+          
+          
+
+
 .deathPerMovie
     position fixed
     bottom 5%
@@ -283,17 +354,113 @@ canvas
           color: #FFF
 
 
+.headshotPerMovie
+  position fixed
+  top 15%
+  left: 10%
+  width: 250px
+  display: flex
+  flex-flow column nowrap
+  align-items: center
+  justify-content: space-around
+  transition: .5s ease-in-out
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-bottom 1px solid #141414
+    border-right 1px solid #141414
+    position: absolute
+    right: -30px
+    bottom: -30px
+
+  .headshot-text
+    display: flex
+    flex-flow: row nowrap
+    align-items: center
+    justify-content: space-around
+
+    p
+      margin 10px 0
+      transition .5s ease-in-out
+
+    .headshot-info
+      font-family: 'Roboto Mono', monospace;
+      color: #000
+      font-size: 14px
+      max-width: 70%
+
+    .nmb-headshot 
+      color: #FFD400
+      font-size: 60px
+      font-family: 'Piedra', cursive
+
+  .headshot-graph
+    display flex
+    flex-flow row nowrap
+    align-items: flex-end
+    justify-content: space-around
+    width: 80%
+
+    .movie
+      width: 10px
+      background-color: #FFF
+      transition .3s ease-in-out
+      cursor pointer
+
+    .pulp
+      height:25px
+    
+    .kill
+      height:35px
+    .jackie
+      height:10px
+    .inglorious
+      height:70px
+    .django
+      height:45px
+
+    .head-selected
+      background-color: #FFD400
 
 
 
 
 
+.object-0
+  .trigger4,.trigger5,.trigger6,.trigger7,.trigger8,.trigger9
+    display: none
 
+.object-5
+  .trigger1,.trigger2,.trigger3,.trigger6,.trigger7,.trigger8,.trigger9
+    display: none
 
+  .for5
+    width: 100% !important
 
+.object-10
+  .trigger1,.trigger2,.trigger3,.trigger4,.trigger5,.trigger8,.trigger9
+    display: none
+  
+  .for5
+    width: 100% !important
+    
 
+  .for10
+    width: 100% !important
 
+.object-15
+  .trigger1,.trigger2,.trigger3,.trigger4,.trigger5,.trigger6,.trigger7
+    display: none
 
+  .for5
+    width: 100% !important
+
+  .for10
+    width: 100% !important
+
+  .for15
+    width: 100% !important
 
 
 
@@ -327,6 +494,13 @@ canvas
 
     &::after
       opacity: 0
+
+.isSelected
+  background-color #FFD400
+  transform scale(1.2)
+
+  &::after
+    opacity: 0
 
 
 @keyframes rotationRound {

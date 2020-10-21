@@ -5,7 +5,10 @@ import PointLight from './PointLight.js'
 import Floor from './Floor'
 import Wall from './Wall'
 import Gun from './Gun'
+import Katana from './Katana'
+import Dynamite from './Dynamite'
 import Cube from './Cube.js'
+import Bubble from './Bubble.js'
 
 export default class World {
   constructor(_options) {
@@ -27,6 +30,9 @@ export default class World {
     // this.setFloor()
     this.setWall()
     this.setGun()
+    this.setDynamite()
+    this.setKatana()
+    this.setBubble()
   }
   setAmbientLight() {
     this.light = new AmbientLight({
@@ -59,5 +65,19 @@ export default class World {
   setGun(){
     this.gun = new Gun(this.time, this.mouse, this.debugFolder)
     this.container.add(this.gun.container)
+  }
+  setDynamite(){
+    this.dynamite = new Dynamite(this.time, this.mouse, this.debugFolder)
+    this.container.add(this.dynamite.container)
+  }
+  
+  setKatana(){
+    this.katana = new Katana(this.time, this.mouse, this.debugFolder)
+    this.container.add(this.katana.container)
+  }
+  
+  setBubble(){
+    this.bubble = new Bubble(this.time, this.mouse, this.debugFolder)
+    this.container.add(this.bubble.container)
   }
 }

@@ -32,9 +32,9 @@ export default class Camera {
       this.camera.updateProjectionMatrix()
     })
   }
-  setPosition() {
+  setPosition(x = 0) {
     // Set camera position
-    this.camera.position.x = 0
+    this.camera.position.x = x
     this.camera.position.y = 2
     this.camera.position.z = 4
   }

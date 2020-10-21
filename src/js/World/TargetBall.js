@@ -18,7 +18,10 @@ export default class TargetBall {
     drawBall(){
         
         this.target = new THREE.SphereBufferGeometry( 20, 32, 32 )
-        this.targetMat = new THREE.MeshNormalMaterial()
+        this.targetMat = new THREE.MeshPhongMaterial({
+            transparent: true,
+            opacity: 0
+        })
         this.meshTarget = new THREE.Mesh(this.target, this.targetMat)
         this.meshTarget.position.set(this.params.positionX, this.params.positionY, this.params.positionZ)
 
