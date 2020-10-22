@@ -22,7 +22,26 @@ export default class App {
     this.trigger8 = _options.trigger8
     this.trigger9 = _options.trigger9
 
+    this.infoBullet = _options.infoBullet
+    this.infoDeath = _options.infoDeath
+    this.infoHead = _options.infoHead
+    this.infoTemp = _options.infoTemp
+    this.infoExplo = _options.infoExplo
+    this.infoBlood = _options.infoBlood
+    this.infoKatana = _options.infoKatana
+    this.infoInsult = _options.infoInsult
+    this.infoPodium = _options.infoPodium
+
+    this.allContent = _options.allContent
+
+    this.allTrigger = _options.allTrigger
+
+    this.closeIframe = _options.closeIframe
+    this.iframe = _options.iframe
+    this.openIframe = _options.openIframe
+
     this.labMouse = _options.labMouse
+
 
     this.CamTarget = 0
 
@@ -110,8 +129,8 @@ export default class App {
       this.trigger8.style.top = Math.floor(vec4.y)/1.5 + "px" 
       this.trigger8.style.left = Math.floor(vec4.x)/1.5 + "px"
       
-      this.trigger9.style.top = Math.floor(vec4.y)/1.5 + "px" 
-      this.trigger9.style.left = Math.floor(vec4.x)/2.3 + "px"
+      this.trigger9.style.top = Math.floor(vec4.y)/1.3 + "px" 
+      this.trigger9.style.left = Math.floor(vec4.x)/2.1 + "px"
     })
     
     this.mouse.on('mouseMove', ()=>{
@@ -123,7 +142,9 @@ export default class App {
         }
       }
       this.labMouse.innerHTML = this.mouseCoo
+
     })
+
   }
   setCamera() {
     // Create camera instance
@@ -171,21 +192,57 @@ export default class App {
   }
 
   showData(){
-    const infoBullet = document.querySelector('.gun-fireshot')
-    const infoDeath = document.querySelector('.deathPerMovie')
-    const infoHead = document.querySelector('.headshotPerMovie')
-
     this.trigger1.addEventListener('click', ()=> {
-      infoBullet.classList.toggle('hidden')
+      this.infoBullet.classList.toggle('hidden')
+      this.infoBullet.classList.toggle('js-openInfo')
       this.trigger1.classList.toggle('isSelected')
     })
     this.trigger2.addEventListener('click', ()=> {
-      infoHead.classList.toggle('hidden')
+      this.infoHead.classList.toggle('hidden')
+      this.infoHead.classList.toggle('js-openInfo')
       this.trigger2.classList.toggle('isSelected')
     })
     this.trigger3.addEventListener('click', ()=> {
-      infoDeath.classList.toggle('hidden')
+      this.infoDeath.classList.toggle('hidden')
+      this.infoDeath.classList.toggle('js-openInfo')
       this.trigger3.classList.toggle('isSelected')
+    })
+    this.trigger4.addEventListener('click', ()=> {
+      this.infoTemp.classList.toggle('hidden')
+      this.infoTemp.classList.toggle('js-openInfo')
+      this.trigger4.classList.toggle('isSelected')
+    })
+    this.trigger5.addEventListener('click', ()=> {
+      this.infoExplo.classList.toggle('hidden')
+      this.infoExplo.classList.toggle('js-openInfo')
+      this.trigger5.classList.toggle('isSelected')
+    })
+    this.trigger6.addEventListener('click', ()=> {
+      this.infoBlood.classList.toggle('hidden')
+      this.infoBlood.classList.toggle('js-openInfo')
+      this.trigger6.classList.toggle('isSelected')
+    })
+    this.trigger7.addEventListener('click', ()=> {
+      this.infoKatana.classList.toggle('hidden')
+      this.infoKatana.classList.toggle('js-openInfo')
+      this.trigger7.classList.toggle('isSelected')
+    })
+    this.trigger8.addEventListener('click', ()=> {
+      this.infoPodium.classList.toggle('hidden')
+      this.infoPodium.classList.toggle('js-openInfo')
+      this.trigger8.classList.toggle('isSelected')
+    })
+    this.trigger9.addEventListener('click', ()=> {
+      this.infoInsult.classList.toggle('hidden')
+      this.infoInsult.classList.toggle('js-openInfo')
+      this.trigger9.classList.toggle('isSelected')
+    })
+    
+    this.closeIframe.addEventListener('click', ()=> {
+      this.iframe.classList.toggle('hidden')
+    })
+    this.openIframe.addEventListener('click', ()=> {
+      this.iframe.classList.toggle('hidden')
     })
   }
 
@@ -220,6 +277,20 @@ export default class App {
         body.classList.add('object-'+objectChange[i].dataset.x)
         objects[i].classList.add('selectedNav')
         oldSelectedNav = document.querySelector('.selectedNav')
+        
+        for(let j = 0; j<this.allContent.length; j++){
+          if(this.allContent[j].classList.contains("js-openInfo")){
+            this.allContent[j].classList.toggle('hidden')
+            this.allContent[j].classList.toggle('js-openInfo')
+          }
+        }
+        
+        for(let k = 0; k<this.allTrigger.length; k++){
+          if(this.allTrigger[k].classList.contains("isSelected")){
+            this.allTrigger[k].classList.toggle('isSelected')
+          }
+        }
+
       })
     }
   }

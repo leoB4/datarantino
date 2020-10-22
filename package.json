@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Three boilerplate",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "parallax-js": "^3.1.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",

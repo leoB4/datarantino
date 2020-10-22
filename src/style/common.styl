@@ -7,6 +7,7 @@ canvas
   width 100%
   height 100%
   outline none
+  
 
 .all
   display none
@@ -17,6 +18,57 @@ canvas
 
 .hidden
   opacity: 0
+  z-index -1 !important
+
+.js-openInfo
+  z-index 200
+
+.iframe-container
+  z-index 500
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%,-50%)
+  width: 85%
+  height: 85%
+  padding: 40px
+  border: 5px solid #FFD400
+  transition: .3s ease-in-out
+
+  .closeIframe
+    position: absolute
+    top: 5%
+    right: 5%
+    width 40px
+    height 40px
+    border-radius: 50%
+    border: 5px solid #FFD400
+    cursor pointer
+
+    &:hover
+      .first-bar
+        transform: translate(-50%,-50%) rotate(45deg)
+
+      .second-bar
+        transform: translate(-50%,-50%) rotate(-45deg)
+
+    .first-bar
+      transform: translate(-50%,-50%) rotate(0deg)
+
+    .second-bar
+      transform: translate(-50%,-50%) rotate(0deg)
+
+    .bar-close
+      width: 30px
+      height 3px
+      background-color #FFD400
+      display block 
+      position: absolute
+      top: 50%
+      left: 50%
+      transition: .5s ease-in-out
+      transform-origin: center center
+    
 
 .intro
   background-color #141414
@@ -53,6 +105,7 @@ canvas
   position: fixed
   top: 2%
   width: 100vw
+  z-index 100
 
 .header-wrapper
   width: 100%
@@ -151,7 +204,7 @@ canvas
   position fixed
   bottom 10%
   right: 5%
-  width: 400px
+  width: 450px
   transition: .5s ease-in-out
 
   .boxed
@@ -194,9 +247,12 @@ canvas
           
           .bulletPerMovie
             background-color #FFD400
+            transform-origin: left center
+            transform scaleX(1.2)
 
             &::after
               opacity 1
+              transform: translate(0%,-50%)
 
         .title-movie
           font-family: 'Piedra', cursive;
@@ -205,7 +261,7 @@ canvas
           width: 45%
           margin: 5px 10px
           color: #FFF
-          font-size: 14px
+          font-size: 16px
           transition: .5s ease-in-out
           vertical-align middle
           display inline-block
@@ -227,7 +283,8 @@ canvas
             font-size 16px
             position: absolute
             top: 50%
-            right: -10%
+            right: -50%
+            padding-left: 20px
             transform translate(-50%,-50%)
         
       .pulp
@@ -273,7 +330,7 @@ canvas
     position fixed
     bottom 5%
     left: 5%
-    width: 200px
+    width: 300px
     display: flex
     flex-flow column nowrap
     align-items: flex-start
@@ -324,7 +381,7 @@ canvas
           margin: 0
           width: 45%  
           font-family: 'Piedra', cursive
-          font-size: 14px
+          font-size: 16px
           color: #FFF
           transition: .5s ease-in-out
         
@@ -349,7 +406,7 @@ canvas
           margin-right: 10px
 
         p
-          font-size: 14px
+          font-size: 16px
           font-family: 'Piedra', cursive
           color: #FFF
 
@@ -387,7 +444,7 @@ canvas
     .headshot-info
       font-family: 'Roboto Mono', monospace;
       color: #000
-      font-size: 14px
+      font-size: 16px
       max-width: 70%
 
     .nmb-headshot 
@@ -408,6 +465,11 @@ canvas
       transition .3s ease-in-out
       cursor pointer
 
+      &:hover
+        transform: scale(1.2)
+        background-color #FFD400
+        transform-origin: center bottom
+
     .pulp
       height:25px
     
@@ -423,8 +485,385 @@ canvas
     .head-selected
       background-color: #FFD400
 
+.temperature
+  position fixed
+  bottom 10%
+  left: 5%
+  width: 400px
+  transition: .5s ease-in-out
 
+  .boxed
+    width: 65px
+    height: 65px
+    border-top 1px solid #141414
+    border-right 1px solid #141414
+    position: absolute
+    right: -30px
+    top: -30px
 
+  .temperature-content
+    display flex
+    flex-flow column nowrap
+    align-items center
+    justify-content: space-around
+
+    .title-temperature
+      font-family: 'Piedra', cursive
+      font-size: 25px
+      color: #000
+      text-align: center
+
+      strong
+        color #FFD400
+
+    img
+      width: 20%
+      cursor pointer
+      transition .5s ease-in-out
+
+      &:hover
+        transform scale(1.2)
+  
+.explosion-death
+  position fixed
+  bottom 10%
+  right: 5%
+  width: 400px
+  transition: .5s ease-in-out
+  display: flex
+  flex-flow: column nowrap
+  align-items: flex-start
+  justify-content: space-around
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-top 1px solid #141414
+    border-left 1px solid #141414
+    position: absolute
+    left: -30px
+    top: -30px
+  
+  .explosion-text
+    display flex
+    flex-flow column nowrap
+    align-items: flex-start
+
+    .explosion-nmb  
+      font-family: 'Piedra', cursive
+      color #FFD400
+      font-size: 60px
+      margin: 0
+
+    .explosion-desc
+      font-family: 'Roboto Mono', monospace;
+      color: #000
+      font-size: 16px
+      margin: 0
+  
+  .explosion-graph
+    display flex
+    flex-flow column nowrap
+    align-items: flex-start
+    justify-content: space-around
+    width: 100%
+    
+
+    .explosion-movie
+      width: 80%
+      transition .5s ease-in-out
+
+      &:hover
+        .movie-title
+          color #FFD400
+
+        .bar-django
+          background-color #FFD400
+          width: 20%
+
+        .bar-inglorious
+          background-color #FFD400
+          width: 42.5%
+
+        .movie-nb
+          color: #FFD400
+
+      .movie-title
+        width: 45%
+        text-align: right
+        font-family: 'Piedra', cursive
+        color #FFF
+        font-size: 16px
+        margin-right: 10px
+        display: inline-block
+        transition .5s ease-in-out
+
+      .bar-django
+        width: 15%
+        height: 15px
+        background-color: #FFF
+        display: inline-block
+        margin-right: 10px
+        transition .5s ease-in-out
+
+      .bar-inglorious
+        width: 40%
+        height: 15px
+        background-color: #FFF
+        display: inline-block
+        margin-right: 10px
+        transition .5s ease-in-out
+
+      .movie-nb
+        font-family: 'Roboto Mono', monospace;
+        color: #FFF
+        font-size: 16px
+        display: inline-block
+        transition .5s ease-in-out
+
+.katana-blood
+  position fixed
+  bottom 35%
+  left: 10%
+  width: 250px
+  transition: .5s ease-in-out
+  display: flex
+  flex-flow: column nowrap
+  align-items: flex-start
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-top 1px solid #141414
+    border-right 1px solid #141414
+    position: absolute
+    right: -30px
+    top: -30px
+
+  .liter
+    font-family: 'Piedra', cursive
+    color #FFD400
+    font-size: 30px
+    width: 100%
+    text-align: right
+    margin: 0
+
+  .blood-desc
+    margin: 0
+    font-family: 'Piedra', cursive
+    color #000
+    font-size: 30px
+    width: 100%
+    text-align: right
+
+.katana-death
+  position fixed
+  top 30%
+  right: 15%
+  width: 250px
+  transition: .5s ease-in-out
+  display: flex
+  flex-flow: column nowrap
+  align-items: flex-start
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-bottom 1px solid #141414
+    border-left 1px solid #141414
+    position: absolute
+    left: -30px
+    bottom: -30px
+
+  .katana-deathNb
+    font-family: 'Piedra', cursive
+    color #FFD400
+    font-size: 60px
+    width: 100%
+    text-align: left
+    margin: 0
+
+  .katana-desc
+    margin: 0
+    font-family: 'Roboto Mono', monospace;
+    color #000
+    font-size: 16px
+    width: 80%
+
+.insult-nb-container
+  position fixed
+  bottom 20%
+  left: 10%
+  width: 200px
+  transition: .5s ease-in-out
+  display: flex
+  flex-flow: column nowrap
+  align-items: flex-end
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-top 1px solid #141414
+    border-right 1px solid #141414
+    position: absolute
+    right: -30px
+    top: -30px
+
+  .insult-number
+    font-family: 'Piedra', cursive
+    color #FFD400
+    font-size: 60px
+    width: 100%
+    text-align: right
+    margin: 0
+
+  .insult-text
+    margin: 0
+    font-family: 'Roboto Mono', monospace;
+    color #000
+    font-size: 16px
+    width: 80%
+    text-align: right
+
+.insult-podium
+  position fixed
+  top 15%
+  right: 10%
+  width: 300px
+  transition: .5s ease-in-out
+  display: flex
+  flex-flow: column nowrap
+  align-items: center
+
+  .boxed
+    width: 65px
+    height: 65px
+    border-bottom 1px solid #141414
+    border-left 1px solid #141414
+    position: absolute
+    left: -30px
+    bottom: -30px
+
+  .podium-title
+    font-family: 'Piedra', cursive
+    color #000
+    font-size: 30px
+    width: 100%
+    margin: 0
+
+    strong
+      color #FFD400
+      font-weight: normal
+
+  .podium
+    position: relative
+    height: 200px
+    width: 100%
+    margin-top 25px
+
+    .scdn-place
+      display: flex
+      flex-flow: column nowrap
+      align-items: center
+      position: absolute
+      left: 0
+      bottom: 0
+      z-index 10
+      
+      &:hover
+        .scnd-step
+          transform-origin: center bottom
+          transform: scale(1.2)
+
+      .scnd-place-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+        font-weight: bold
+
+      .scnd-step
+        clip-path: polygon(49% 0, 10% 100%, 90% 100%);
+        background-color: #FFF
+        width: 85px
+        height: 95px
+        box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);
+        transition .5s ease-in-out
+        transform-origin: center bottom
+
+      .data-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+          
+    
+    .first-place
+      display: flex
+      flex-flow: column nowrap
+      align-items: center
+      position: absolute
+      left: 15%
+      bottom: 0
+      z-index 20
+
+      &:hover
+        .first-step
+          transform-origin: center bottom
+          transform: scale(1.2)
+
+      .first-place-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+        font-weight: bold
+
+      .first-step
+        clip-path: polygon(49% 0, 10% 100%, 90% 100%);
+        background-color: #FFD400
+        width: 85px
+        height: 135px
+        box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);
+        transition .5s ease-in-out
+        transform-origin: center bottom
+
+      .data-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+    
+    .third-place
+      display: flex
+      flex-flow: column nowrap
+      align-items: center
+      position: absolute
+      left: 30%
+      bottom: 0
+      z-index 20
+
+      &:hover
+        .third-step
+          transform-origin: center bottom
+          transform: scale(1.2)
+
+      .third-place-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+        font-weight: bold
+
+      .third-step
+        clip-path: polygon(49% 0, 10% 100%, 90% 100%);
+        background-color: #FFF
+        width: 85px
+        height: 70px
+        box-shadow: 0px 0px 25px -1px rgba(0,0,0,0.75);
+        transition .5s ease-in-out
+        transform-origin: center bottom
+      
+      .data-insult
+        font-family: 'Roboto Mono', monospace;
+        color #000
+        font-size: 16px
+          
 
 
 .object-0
@@ -477,6 +916,7 @@ canvas
   outline none
   cursor pointer
   transition .5s ease-in-out
+  z-index: 100
 
   &::after
     content url('../assets/round-btn.svg')
@@ -503,6 +943,40 @@ canvas
     opacity: 0
 
 
+
+.moving-bande
+  position: absolute
+  bottom: 5%
+  right: 5%
+  width: 50px
+  height: 200px
+  display: flex
+  flex-flow: row nowrap
+  align-items: flex-end
+  justify-content: space-around
+
+  .bande
+    width: 5px
+    height: 40px
+    background-color: #000
+    transition: .2s ease-out
+    transform-origin: center bottom
+    // transform rotate(-180deg)
+
+  .b1
+    animation growing 2s ease-in-out infinite alternate
+  
+  .b2
+    animation growing 3s ease-in-out 1s infinite alternate
+ 
+  .b3
+    animation growing 4s ease-in-out 0.5s infinite alternate
+  
+  .b4
+    animation growing 2.5s ease-in-out 0.5s infinite reverse
+
+
+
 @keyframes rotationRound {
 
   0%{
@@ -513,4 +987,27 @@ canvas
   }
 
 }
+
+@keyframes growing {
+
+  0%{
+    height: 40px  
+  }
+  30%{
+    height: 15px  
+  }
+  50%{
+    height: 65px  
+  }
+  75%{
+    height 45px  
+  }
+  85%{
+    height 15px  
+  }
+  100%{
+    height: 55px  
+  }
+}
+  
     
