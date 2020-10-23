@@ -4,6 +4,7 @@ import * as dat from 'dat.gui'
 import Sizes from './Tools/Sizes.js'
 import Time from './Tools/Time.js'
 import Mouse from './Tools/Mouse'
+import Noise from './Tools/simpleNoise'
 
 import Camera from './Camera.js'
 import World from './World/index.js'
@@ -36,6 +37,9 @@ export default class App {
 
     this.allTrigger = _options.allTrigger
 
+    this.sinus = _options.sinus
+    this.ctx = _options.ctx
+
     this.closeIframe = _options.closeIframe
     this.iframe = _options.iframe
     this.openIframe = _options.openIframe
@@ -49,6 +53,8 @@ export default class App {
     this.time = new Time()
     this.sizes = new Sizes()
     this.mouse = new Mouse()
+
+    this.noise = new Noise()
 
     this.setConfig()
     this.setRenderer()
@@ -81,6 +87,7 @@ export default class App {
         this.sizes.viewport.height
       )
     })
+
     // Set RequestAnimationFrame with 60ips
     this.time.on('tick', () => {
       this.renderer.render(this.scene, this.camera.camera)
@@ -131,6 +138,7 @@ export default class App {
       
       this.trigger9.style.top = Math.floor(vec4.y)/1.3 + "px" 
       this.trigger9.style.left = Math.floor(vec4.x)/2.1 + "px"
+   
     })
     
     this.mouse.on('mouseMove', ()=>{
@@ -144,6 +152,8 @@ export default class App {
       this.labMouse.innerHTML = this.mouseCoo
 
     })
+
+    
 
   }
   setCamera() {

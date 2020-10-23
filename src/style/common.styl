@@ -85,6 +85,36 @@ canvas
   overflow: hidden
   transition .5s ease-in-out
 
+  p
+    font-size 18px
+    color: #ffffff
+    font-family: 'Roboto Mono', monospace;
+    position absolute
+    bottom 5%
+    left: 50%
+    transform translateX(-50%)
+
+    a
+      color #fff
+      text-decoration none
+      position relative
+
+      &:hover
+        &::after
+          transform: scaleX(1)
+
+      &::after
+        content ''
+        width: 100%
+        height: 2px
+        background-color #fff
+        position absolute
+        left 0
+        bottom -20%
+        transform: scaleX(00)
+        transition: .5s ease-in-out
+        transform-origin: left
+
   .home-title
     font-size 200px
     border none 
@@ -202,16 +232,16 @@ canvas
 
 .gun-fireshot
   position fixed
-  bottom 10%
+  bottom 12%
   right: 5%
-  width: 450px
+  width: 500px
   transition: .5s ease-in-out
 
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid #141414
-    border-left 1px solid #141414
+    border-top 2px solid #141414
+    border-left 2px solid #141414
     position: absolute
     left: -30px
     top: -30px
@@ -261,7 +291,7 @@ canvas
           width: 45%
           margin: 5px 10px
           color: #FFF
-          font-size: 16px
+          font-size: 18px
           transition: .5s ease-in-out
           vertical-align middle
           display inline-block
@@ -278,9 +308,9 @@ canvas
           &::after
             opacity 0
             transition: .5s ease-in-out
-            color #FFD400
-            font-family: 'Piedra', cursive;
-            font-size 16px
+            color #000
+            font-family: 'Roboto Mono', monospace;
+            font-size 18px
             position: absolute
             top: 50%
             right: -50%
@@ -328,9 +358,9 @@ canvas
 
 .deathPerMovie
     position fixed
-    bottom 5%
+    bottom 13%
     left: 5%
-    width: 300px
+    width: 350px
     display: flex
     flex-flow column nowrap
     align-items: flex-start
@@ -340,8 +370,8 @@ canvas
     .boxed
         width: 65px
         height: 65px
-        border-top 1px solid #141414
-        border-right 1px solid #141414
+        border-top 2px solid #141414
+        border-right 2px solid #141414
         position: absolute
         right: -30px
         top: -30px
@@ -363,30 +393,73 @@ canvas
       align-items: flex-end
       justify-content: space-around
       width: 100%
-      margin-right: 40px
+      margin: auto
 
       .movie  
-        display: flex
-        flex-flow: row nowrap
-        align-items: center
-        justify-content: space-around
-        margin: 10px 0
-        width: 100%
+        margin: 10px
+        width: 100% 
+
+        &::after
+          color #000000
+          font-size 18px
+          font-family: 'Roboto Mono', monospace;
+          opacity 0
+          transition: .5s ease-in-out
+          position absolute
+          
 
         &:hover
+          &::after
+            opacity 1
           p
             color: #FFD400
 
+          svg
+            .a
+              stroke: #FFD400
+
+            .b
+              stroke: #FFD400
+    
         p
           margin: 0
           width: 45%  
           font-family: 'Piedra', cursive
-          font-size: 16px
+          font-size: 18px
           color: #FFF
           transition: .5s ease-in-out
+          
         
         .movie-title
           text-align: right
+          display: inline-block
+          vertical-align: middle
+
+        svg
+          max-width: 50%
+          display: inline-block
+          vertical-align: middle
+          margin: 0 10px
+          transition: .5s ease-in-out
+
+          .b
+            transition: .5s ease-in-out
+
+      .pulpFi
+        &::after
+          content: "7"
+      .KillB
+        &::after
+          content: "62"
+      .JackB
+        &::after
+          content: "3"
+      .Inglor
+        &::after
+          content: "396"
+      .DjangoU
+        &::after
+          content: "64"
 
     .scale-death
       display: flex
@@ -394,6 +467,7 @@ canvas
       align-items: center
       justify-content: space-between
       width: 100%
+      margin-top 15px
 
       .death
         display: flex
@@ -406,7 +480,7 @@ canvas
           margin-right: 10px
 
         p
-          font-size: 16px
+          font-size: 18px
           font-family: 'Piedra', cursive
           color: #FFF
 
@@ -415,7 +489,7 @@ canvas
   position fixed
   top 15%
   left: 10%
-  width: 250px
+  width: 300px
   display: flex
   flex-flow column nowrap
   align-items: center
@@ -425,8 +499,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-bottom 1px solid #141414
-    border-right 1px solid #141414
+    border-bottom 2px solid #141414
+    border-right 2px solid #141414
     position: absolute
     right: -30px
     bottom: -30px
@@ -444,8 +518,9 @@ canvas
     .headshot-info
       font-family: 'Roboto Mono', monospace;
       color: #000
-      font-size: 16px
+      font-size: 18px
       max-width: 70%
+      font-weight bold
 
     .nmb-headshot 
       color: #FFD400
@@ -495,8 +570,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid #141414
-    border-right 1px solid #141414
+    border-top 2px solid #141414
+    border-right 2px solid #141414
     position: absolute
     right: -30px
     top: -30px
@@ -528,7 +603,7 @@ canvas
   position fixed
   bottom 10%
   right: 5%
-  width: 400px
+  width: 450px
   transition: .5s ease-in-out
   display: flex
   flex-flow: column nowrap
@@ -538,8 +613,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid #141414
-    border-left 1px solid #141414
+    border-top 2px solid #141414
+    border-left 2px solid #141414
     position: absolute
     left: -30px
     top: -30px
@@ -558,8 +633,9 @@ canvas
     .explosion-desc
       font-family: 'Roboto Mono', monospace;
       color: #000
-      font-size: 16px
+      font-size: 18px
       margin: 0
+      font-weight bold
   
   .explosion-graph
     display flex
@@ -585,15 +661,13 @@ canvas
           background-color #FFD400
           width: 42.5%
 
-        .movie-nb
-          color: #FFD400
 
       .movie-title
         width: 45%
         text-align: right
         font-family: 'Piedra', cursive
         color #FFF
-        font-size: 16px
+        font-size: 18px
         margin-right: 10px
         display: inline-block
         transition .5s ease-in-out
@@ -616,8 +690,8 @@ canvas
 
       .movie-nb
         font-family: 'Roboto Mono', monospace;
-        color: #FFF
-        font-size: 16px
+        color: #000
+        font-size: 18px
         display: inline-block
         transition .5s ease-in-out
 
@@ -634,8 +708,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid #141414
-    border-right 1px solid #141414
+    border-top 2px solid #141414
+    border-right 2px solid #141414
     position: absolute
     right: -30px
     top: -30px
@@ -669,8 +743,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-bottom 1px solid #141414
-    border-left 1px solid #141414
+    border-bottom 2px solid #141414
+    border-left 2px solid #141414
     position: absolute
     left: -30px
     bottom: -30px
@@ -687,8 +761,9 @@ canvas
     margin: 0
     font-family: 'Roboto Mono', monospace;
     color #000
-    font-size: 16px
+    font-size: 18px
     width: 80%
+    font-weight bold
 
 .insult-nb-container
   position fixed
@@ -703,8 +778,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-top 1px solid #141414
-    border-right 1px solid #141414
+    border-top 2px solid #141414
+    border-right 2px solid #141414
     position: absolute
     right: -30px
     top: -30px
@@ -721,9 +796,10 @@ canvas
     margin: 0
     font-family: 'Roboto Mono', monospace;
     color #000
-    font-size: 16px
+    font-size: 18px
     width: 80%
     text-align: right
+    font-weight bold
 
 .insult-podium
   position fixed
@@ -738,8 +814,8 @@ canvas
   .boxed
     width: 65px
     height: 65px
-    border-bottom 1px solid #141414
-    border-left 1px solid #141414
+    border-bottom 2px solid #141414
+    border-left 2px solid #141414
     position: absolute
     left: -30px
     bottom: -30px
@@ -778,7 +854,7 @@ canvas
       .scnd-place-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
         font-weight: bold
 
       .scnd-step
@@ -793,7 +869,7 @@ canvas
       .data-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
           
     
     .first-place
@@ -813,7 +889,7 @@ canvas
       .first-place-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
         font-weight: bold
 
       .first-step
@@ -828,7 +904,7 @@ canvas
       .data-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
     
     .third-place
       display: flex
@@ -847,7 +923,7 @@ canvas
       .third-place-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
         font-weight: bold
 
       .third-step
@@ -862,7 +938,7 @@ canvas
       .data-insult
         font-family: 'Roboto Mono', monospace;
         color #000
-        font-size: 16px
+        font-size: 18px
           
 
 
